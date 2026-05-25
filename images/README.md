@@ -328,3 +328,9 @@ All images in this folder are licensed under the [GNU General Public License ver
 ## NishiOwO/dectalk.png
  - Created by [@Dogo6647](https://github.com/Dogo6647)
  - Used Arimo from Google Fonts.
+
+## utakeuchigames/boolvariable.svg
+ - Created by [@utakeuchigames](https://github.com/utakeuchigames)
+ - The icon design for this extension is inspired by the Original Extension Name.
+ - The background pattern and style elements are based on the design of the aforementioned project.
+ - I have modified and reconfigured these elements to fit the theme of this extension.
