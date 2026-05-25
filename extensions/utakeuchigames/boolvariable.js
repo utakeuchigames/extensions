@@ -7,7 +7,7 @@
 ((Scratch) => {
   "use strict";
 
-  const icon = "https://utakeuchigames.github.io/boolvariable/favicon.svg";
+  const icon = "./../../image/utakeuchigames/utakeuchigames/boolvariable_icon.svg";
 
   class Boolvariable {
     constructor() {
