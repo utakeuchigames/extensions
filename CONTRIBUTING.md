@@ -125,7 +125,7 @@ First, try to avoid using third-party libraries if you can. If you must, we have
 
 ## Adding your extension to the library
 
-Add your extension\'s path (without `extensions/` and without `.js`) to `extensions/extensions.json`. The order of that list determines the order of the library. Try to put it next to related related extensions if possible.
+Add your extension's path (without `extensions/` and without `.js`) to `extensions/extensions.json`. The order of that list determines the order of the library. Try to put it next to related related extensions if possible.
 
 New extensions do not need an image for the library, but they are encouraged. Put any image in the `images` folder with the same folder name and file name but different file extension as the extension's JavaScript. For example, if your extension's code is in `extensions/TestMuffin/fetch.js`, the image would be `images/TestMuffin/fetch.svg` or `images/TestMuffin/fetch.png`. The homepage generator will find this file automatically. Images are displayed in a 2:1 aspect ratio. SVG (preferred), PNG, or JPG are accepted. PNG or JPG should be 600x300 in resolution. Add attribution to `images/README.md` for yourself and anything not made by you. Images submitted to this repository must be licensed under the [GNU General Public License version 3](licenses/GPL-3.0.txt). Avoid text if possible since these images can't be translated.
 
