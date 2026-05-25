@@ -4,6 +4,40 @@
 // By: yamaki3970 (utakeuchigames) <https://scratch.mit.edu/users/yamaki3970/ , https://scratch.mit.edu/users/utakeuchigames/>
 // License: MPL-2.0
 
+/* generated l10n code */
+Scratch.translate.setup({
+  "ja": {
+    "Bool変数拡張": "Bool変数拡張",
+    "真偽値変数": "真偽値変数",
+    "変数作成フォームを開く": "変数作成フォームを開く",
+    "bool値[variable]を[bool]にする": "bool値[variable]を[bool]にする",
+    "bool値[variable]": "bool値[variable]",
+    "bool値[variable]が[bool]になった時": "bool値[variable]が[bool]になった時",
+    "全部のbool値を見る": "全部のbool値を見る",
+    "全部のbool値の情報を見る": "全部のbool値の情報を見る",
+    "その他のキット": "その他のキット",
+    "![bool]": "![bool]",
+    "[bool1] && [bool2]": "[bool1] && [bool2]",
+    "[bool1] || [bool2]": "[bool1] || [bool2]",
+    "[bool1] !== [bool2]": "[bool1] !== [bool2]"
+  },
+  "en": {
+    "Bool変数拡張": "Bool Variable Extension",
+    "真偽値変数": "Boolean Variables",
+    "変数作成フォームを開く": "Open variable creation form",
+    "bool値[variable]を[bool]にする": "set bool [variable] to [bool]",
+    "bool値[variable]": "bool [variable]",
+    "bool値[variable]が[bool]になった時": "when bool [variable] becomes [bool]",
+    "全部のbool値を見る": "view all bools",
+    "全部のbool値の情報を見る": "view all bools info",
+    "その他のキット": "Other Kit",
+    "![bool]": "![bool]",
+    "[bool1] && [bool2]": "[bool1] && [bool2]",
+    "[bool1] || [bool2]": "[bool1] || [bool2]",
+    "[bool1] !== [bool2]": "[bool1] !== [bool2]"
+  }
+});
+/* end generated l10n code */
 ((Scratch) => {
   "use strict";
 
