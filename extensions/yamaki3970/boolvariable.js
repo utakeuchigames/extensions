@@ -212,7 +212,7 @@
               bool2: {
                 type: Scratch.ArgumentType.BOOLEAN,
               },
-            },
+            }
           },
         ],
         menus: {
