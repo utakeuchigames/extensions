@@ -75,7 +75,8 @@
         id: "BV",
         name: Scratch.translate({
           default: "BoolVariables",
-          description: "Name of the extension. Please do not translate this if possible.",
+          description:
+            "Name of the extension. Please do not translate this if possible.",
         }),
         menuIconURI: icon,
         color1: "#ff8c1a",
@@ -211,7 +212,7 @@
               bool2: {
                 type: Scratch.ArgumentType.BOOLEAN,
               },
-            }
+            },
           },
         ],
         menus: {
