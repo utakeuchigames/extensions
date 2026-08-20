@@ -17,13 +17,19 @@
   }
   class Boolvariable {
     static customId = "boolvariable";
+
+    /**
+     * Serializes the current state of boolean variables to be saved in the project file.
+     */
     serialize() {
       return {
         boolVariables: this.boolVariables,
         boolVariablesinfo: this.boolVariablesinfo,
       };
     }
+
     /**
+     * Loads the saved boolean variables from the project file.
      * @param {{boolVariables: Record<string, boolean>, boolVariablesinfo: Record<string, {isLocal: boolean, targetId: string, displayName: string}>}} data
      */
     deserialize(data) {
@@ -41,43 +47,6 @@
       this.frameCount = 0;
       this.customId = Boolvariable.customId;
       this.type = Boolvariable.customId;
-    }
-
-    refreshBlocks() {
-      setTimeout(() => {
-        Scratch.vm.extensionManager.refreshBlocks("BV");
-      }, 5);
-    }
-
-    /**
-     * @param {string} internalKey
-     */
-    ensureVariableExists(internalKey) {
-      if (
-        Object.prototype.hasOwnProperty.call(this.boolVariables, internalKey)
-      ) {
-        return;
-      }
-      let displayName = internalKey;
-      let isLocal = false;
-      let targetId = "stage";
-      if (internalKey.includes("_")) {
-        const lastIndex = internalKey.lastIndexOf("_");
-        isLocal = true;
-        targetId = internalKey.substring(0, lastIndex);
-        displayName = internalKey.substring(lastIndex + 1);
-      } else {
-        displayName = internalKey;
-        isLocal = false;
-        targetId = "stage";
-      }
-      this.boolVariables[internalKey] = false;
-      this.boolVariablesinfo[internalKey] = {
-        isLocal: isLocal,
-        targetId: targetId,
-        displayName: displayName,
-      };
-      this.refreshBlocks();
     }
 
     getInfo() {
@@ -250,6 +219,12 @@
         },
       };
     }
+
+    /**
+     * Opens the Blockly prompt to create a new boolean variable.
+     * It checks if the variable already exists (preventing duplicates based on scope)
+     * and sets up the internal key depending on whether it's for all sprites or this sprite only.
+     */
     createUI() {
       try {
         const self = this;
@@ -310,7 +285,52 @@
         );
       } catch (err) {}
     }
+
     /**
+     * Refreshes the Scratch blocks workspace so newly created or deleted variables appear/disappear.
+     */
+    refreshBlocks() {
+      setTimeout(() => {
+        Scratch.vm.extensionManager.refreshBlocks("BV");
+      }, 5);
+    }
+
+    /**
+     * Ensures that a given variable exists in memory.
+     * If it doesn't exist, it registers it by parsing the internal key to figure out if it's a global or local (sprite-specific) variable.
+     * @param {string} internalKey
+     */
+    ensureVariableExists(internalKey) {
+      if (
+        Object.prototype.hasOwnProperty.call(this.boolVariables, internalKey)
+      ) {
+        return;
+      }
+      let displayName = internalKey;
+      let isLocal = false;
+      let targetId = "stage";
+      if (internalKey.includes("_")) {
+        const lastIndex = internalKey.lastIndexOf("_");
+        isLocal = true;
+        targetId = internalKey.substring(0, lastIndex);
+        displayName = internalKey.substring(lastIndex + 1);
+      } else {
+        displayName = internalKey;
+        isLocal = false;
+        targetId = "stage";
+      }
+      this.boolVariables[internalKey] = false;
+      this.boolVariablesinfo[internalKey] = {
+        isLocal: isLocal,
+        targetId: targetId,
+        displayName: displayName,
+      };
+      this.refreshBlocks();
+    }
+
+    /**
+     * Dynamically populates the dropdown menu for variables in the blocks.
+     * It filters out local variables that do not belong to the currently selected sprite.
      * @param {string} currentlySelectcedValue
      */
     getVariableMenuItems(currentlySelectcedValue) {
@@ -341,7 +361,11 @@
       }
       return menuItems;
     }
+
     /**
+     * Updates the value of a boolean variable.
+     * Important: If the value actually changes from its previous state,
+     * it triggers the "when bool variable becomes [bool]" event hat blocks.
      * @param {Record<string, any>} args
      * @param {object} util
      */
@@ -358,7 +382,10 @@
         Scratch.vm.runtime.startHats("BV_ifBool", data);
       }
     }
+
     /**
+     * Retrieves the current state (true/false) of a given boolean variable.
+     * Defaults to false if the variable doesn't exist yet or is invalid.
      * @param {Record<string, any>} args
      * @param {object} util
      */
@@ -368,7 +395,10 @@
       this.ensureVariableExists(args.variable);
       return !!this.boolVariables[args.variable];
     }
+
     /**
+     * Deletes a boolean variable completely from memory (values and info)
+     * and refreshes the blocks so it disappears from the menus.
      * @param {Record<string, any>} args
      * @param {object} util
      */
@@ -380,30 +410,38 @@
       this.refreshBlocks();
       return;
     }
+
     /**
+     * Logical NOT. Inverts the given boolean value.
      * @param {Record<string, any>} args
      * @param {object} util
      */
     reversebool(args, util) {
       return !args.bool;
     }
+
     /**
+     * Logical AND. Returns true only if both arguments are true.
      * @param {Record<string, any>} args
      * @param {object} util
      */
     andbool(args, util) {
       return !!(args.bool1 && args.bool2);
     }
+
     /**
+     * Logical OR. Returns true if at least one of the arguments is true.
      * @param {Record<string, any>} args
      * @param {object} util
      */
     orbool(args, util) {
       return !!(args.bool1 || args.bool2);
     }
+
     /**
+     * Logical XOR (Exclusive OR). Returns true if the arguments are different.
      * @param {Record<string, any>} args
-     * @param {object} util
+     * @Pro @param {object} util
      */
     xorbool(args, util) {
       return args.bool1 !== args.bool2;
