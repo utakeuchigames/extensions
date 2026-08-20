@@ -75,8 +75,7 @@
         id: "BV",
         name: Scratch.translate({
           default: "BoolVariables",
-          description:
-            "A note or instruction specific to Japanese users regarding the usage or convention of BoolVariables.",
+          description: "Name of the extension. Please do not translate this if possible.",
         }),
         menuIconURI: icon,
         color1: "#ff8c1a",
@@ -161,7 +160,7 @@
           {
             blockType: Scratch.BlockType.LABEL,
             text: Scratch.translate({
-              default: "other kit",
+              default: "logic operators",
               description: "Label for logic operation blocks",
             }),
           },
