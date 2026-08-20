@@ -11,6 +11,7 @@
   iconurl[1] =
     "PHBhdGggZD0nTTI0Mi45NiwxNzYuNWMtMC45MTExNSwwLjAwMDIgLTEuNzcyODMsMC40MTQ0OSAtMi4zNDIsMS4xMjZsLTAuMzI4LDAuNDFsLTAuMTExLC0wLjI3OWMtMC4zMDM2NywtMC43NTg5MSAtMS4wMzg1OSwtMS4yNTY2NSAtMS44NTYsLTEuMjU3aC0wLjMyM2MtMC41NTIyOCwwIC0xLDAuNDQ3NzIgLTEsMWMwLDAuNTUyMjggMC40NDc3MiwxIDEsMWgwLjMyM2wwLjUzMiwxLjMzbC0xLjAzNSwxLjI5NWMtMC4xODk4NiwwLjIzNzE0IC0wLjQ3NzIyLDAuMzc1MTEgLTAuNzgxLDAuMzc1aC0wLjAzOWMtMC41NTIyOCwwIC0xLDAuNDQ3NzIgLTEsMWMwLDAuNTUyMjggMC40NDc3MiwxIDEsMWgwLjAzOWMwLjkxMTE1LC0wLjAwMDIgMS43NzI4MywtMC40MTQ0OSAyLjM0MiwtMS4xMjZsMC4zMjgsLTAuNDFsMC4xMTEsMC4yNzljMC4zMDM4LDAuNzU5MjUgMS4wMzkyMywxLjI1NzA1IDEuODU3LDEuMjU3aDAuMzIzYzAuNTUyMjgsMCAxLC0wLjQ0NzcyIDEsLTFjMCwtMC41NTIyOCAtMC40NDc3MiwtMSAtMSwtMWgtMC4zMjNsLTAuNTMyLC0xLjMzbDEuMDM1LC0xLjI5NWMwLjE4OTg2LC0wLjIzNzE0IDAuNDc3MjIsLTAuMzc1MTEgMC43ODEsLTAuMzc1aDAuMDM5YzAuNTUyMjgsMCAxLC0wLjQ0NzcyIDEsLTFjMCwtMC41NTIyOCAtMC40NDc3MiwtMSAtMSwtMWgtMC4wMzl6JyBmaWxsPScjZmZmZmZmJyBmaWxsLXJ1bGU9J2V2ZW5vZGQnLz48cGF0aCBkPSdNMjQ2LjcxNzE1LDE3My4wODMwMWMwLjI0Njk5LDAuMDk2NzcgMC40NDU0MiwwLjI4NzczIDAuNTUxNiwwLjUzMDgzYzAuODU3LDEuOTYgMy4yMjAwNiw2LjI2MjY4IDMuMjIwMDYsNi4yNjI2OGMwLDAgLTIuMzM4OTYsNC41MTg4MiAtMy4yMjAwNiw2LjUzNzMyYy0wLjIzMTM0LDAuNDg4MyAtMC44MDg3MiwwLjcwNDUxIC0xLjMwMzg5LDAuNDg4MjhjLTAuNDk1MTcsLTAuMjE2MjQgLTAuNzI5MDIsLTAuNzg2NyAtMC41MjgxMSwtMS4yODgyOGMwLjc0OCwtMS43MTQgMi42MDU4LC01LjYgMi42MDU4LC01LjZjMCwwIC0xLjgzNDUyLC0zLjgzMzY5IC0yLjYwNDgsLTUuNmMtMC4yMjA4OCwtMC41MDUzNSAwLjAwOTA4LC0xLjA5NDEzIDAuNTE0LC0xLjMxNmMwLjI0MzA3LC0wLjEwNjI3IDAuNTE4NCwtMC4xMTE2IDAuNzY1NCwtMC4wMTQ4M3pNMjI5LjUxMTE5LDE3OS44NzY1MnonIGZpbGw9JyNmZmZmZmYnIGZpbGwtcnVsZT0nZXZlbm9kZCcvPjxwYXRoIGQ9J00yMzQuMDQ4MjUsMTczLjA5Nzg0YzAuNTA0OTIsMC4yMjE4NyAwLjczNDg4LDAuODEwNjUgMC41MTQsMS4zMTZjLTAuNzcwMjgsMS43NjYzMSAtMi42MDQ3OSw1LjYgLTIuNjA0NzksNS42YzAsMCAxLjg1NzgsMy44ODYgMi42MDU4LDUuNmMwLjIwMDkxLDAuNTAxNTggLTAuMDMyOTQsMS4wNzIwNCAtMC41MjgxMSwxLjI4ODI4Yy0wLjQ5NTE3LDAuMjE2MjMgLTEuMDcyNTUsMC4wMDAwMiAtMS4zMDM4OSwtMC40ODgyOGMtMC44ODExLC0yLjAxODQ5IC0zLjIyMDA2LC02LjUzNzMyIC0zLjIyMDA2LC02LjUzNzMyYzAsMCAyLjM2MzA2LC00LjMwMjY4IDMuMjIwMDYsLTYuMjYyNjljMC4xMDYxOCwtMC4yNDMxIDAuMzA0NjEsLTAuNDM0MDYgMC41NTE2LC0wLjUzMDgzYzAuMjQ3LC0wLjA5Njc3IDAuNTIyMzMsLTAuMDkxNDQgMC43NjU0LDAuMDE0ODN6TTI1MC40ODg4MSwxNzkuODc2NTJ6JyBmaWxsPScjZmZmZmZmJyBmaWxsLXJ1bGU9J2V2ZW5vZGQnLz48L2c";
   const icon = `${iconurl[0]}+${iconurl[1]}+PC9zdmc+`;
+  /** @type {any} */
   let myScratchBlocks;
   if (Scratch.gui) {
     await Scratch.gui.getBlockly().then((ScratchBlocks) => {
@@ -25,12 +26,18 @@
         boolVariablesinfo: this.boolVariablesinfo,
       };
     }
+    /**
+     * @param {{boolVariables: Record<string, boolean>, boolVariablesinfo: Record<string, {isLocal: boolean, targetId: string, displayName: string}>}} data
+     */
     deserialize(data) {
       this.boolVariables = data.boolVariables;
       this.boolVariablesinfo = data.boolVariablesinfo;
     }
+
     constructor() {
+      /** @type {Record<string, boolean>} */
       this.boolVariables = {};
+      /** @type {Record<string, {isLocal: boolean, targetId: string, displayName: string}>} */
       this.boolVariablesinfo = {};
       this.isUIOpen = false;
       this.isDelUIOpen = false;
@@ -38,11 +45,16 @@
       this.customId = Boolvariable.customId;
       this.type = Boolvariable.customId;
     }
+
     refreshBlocks() {
       setTimeout(() => {
         Scratch.vm.extensionManager.refreshBlocks("BV");
       }, 5);
     }
+
+    /**
+     * @param {string} internalKey
+     */
     ensureVariableExists(internalKey) {
       if (
         Object.prototype.hasOwnProperty.call(this.boolVariables, internalKey)
@@ -70,6 +82,7 @@
       };
       this.refreshBlocks();
     }
+
     getInfo() {
       return {
         id: "BV",
@@ -246,6 +259,11 @@
         myScratchBlocks.prompt(
           Scratch.translate("New variable name:"),
           "",
+          /**
+           * @param {string} name
+           * @param {any} more_vars
+           * @param {{scope: string}} param2
+           */
           (name, more_vars, { scope }) => {
             if (!name || name.trim() === "") {
               return;
@@ -295,7 +313,10 @@
         );
       } catch (err) {}
     }
-    getVariableMenuItems(currentlySelectedValue) {
+    /**
+     * @param {string} currentlySelectcedValue
+     */
+    getVariableMenuItems(currentlySelectcedValue) {
       const menuItems = [];
       const currentTarget = Scratch.vm.runtime.getEditingTarget();
       const currentTargetId = currentTarget
@@ -323,6 +344,10 @@
       }
       return menuItems;
     }
+    /**
+     * @param {Record<string, any>} args
+     * @param {object} util
+     */
     setBool(args, util) {
       if (args.variable === "none") return;
       this.ensureVariableExists(args.variable);
@@ -333,27 +358,23 @@
         bool: String(args.bool),
       };
       if (prevalue != (args.bool === "true")) {
-        Scratch.vm.runtime.startHats("BV_ifBool", data, false);
+        Scratch.vm.runtime.startHats("BV_ifBool", data);
       }
     }
+    /**
+     * @param {Record<string, any>} args
+     * @param {object} util
+     */
     getBool(args, util) {
-      if (args.variable === "OPEN_DELETE_UI") {
-        this.createDeleteUI();
-        return false;
-      }
       if (args.variable === "IGNORE_CLICK" || args.variable === "none")
         return false;
       this.ensureVariableExists(args.variable);
       return !!this.boolVariables[args.variable];
     }
-    ifBool(args, util) {
-      if (args.variable === "IGNORE_CLICK" || args.variable === "none")
-        return false;
-      return (
-        args.variable === util.currentBackgroundData.variable &&
-        args.bool === util.currentBackgroundData.bool
-      );
-    }
+    /**
+     * @param {Record<string, any>} args
+     * @param {object} util
+     */
     deleteBool(args, util) {
       if (args.variable === "none") return;
       let selectedKey = args.variable;
@@ -362,15 +383,31 @@
       this.refreshBlocks();
       return;
     }
+    /**
+     * @param {Record<string, any>} args
+     * @param {object} util
+     */
     reversebool(args, util) {
       return !args.bool;
     }
+    /**
+     * @param {Record<string, any>} args
+     * @param {object} util
+     */
     andbool(args, util) {
       return !!(args.bool1 && args.bool2);
     }
+    /**
+     * @param {Record<string, any>} args
+     * @param {object} util
+     */
     orbool(args, util) {
       return !!(args.bool1 || args.bool2);
     }
+    /**
+     * @param {Record<string, any>} args
+     * @param {object} util
+     */
     xorbool(args, util) {
       return args.bool1 !== args.bool2;
     }
