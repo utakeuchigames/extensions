@@ -18,33 +18,11 @@
   class Boolvariable {
     static customId = "boolvariable";
 
-    /**
-     * Serializes the current state of boolean variables to be saved in the project file.
-     */
-    serialize() {
-      return {
-        boolVariables: this.boolVariables,
-        boolVariablesinfo: this.boolVariablesinfo,
-      };
-    }
-
-    /**
-     * Loads the saved boolean variables from the project file.
-     * @param {{boolVariables: Record<string, boolean>, boolVariablesinfo: Record<string, {isLocal: boolean, targetId: string, displayName: string}>}} data
-     */
-    deserialize(data) {
-      this.boolVariables = data.boolVariables;
-      this.boolVariablesinfo = data.boolVariablesinfo;
-    }
-
     constructor() {
       /** @type {Record<string, boolean>} */
       this.boolVariables = {};
       /** @type {Record<string, {isLocal: boolean, targetId: string, displayName: string}>} */
       this.boolVariablesinfo = {};
-      this.isUIOpen = false;
-      this.isDelUIOpen = false;
-      this.frameCount = 0;
       this.customId = Boolvariable.customId;
       this.type = Boolvariable.customId;
     }
@@ -277,6 +255,10 @@
               targetId: targetId,
               displayName: trimmedName,
             };
+            Scratch.vm.runtime.extensionStorage.BV = {
+              boolVariables: self.boolVariables,
+              boolVariablesinfo: self.boolVariablesinfo,
+            };
             this.refreshBlocks();
             return;
           },
@@ -324,6 +306,10 @@
         isLocal: isLocal,
         targetId: targetId,
         displayName: displayName,
+      };
+      Scratch.vm.runtime.extensionStorage.BV = {
+        boolVariables: this.boolVariables,
+        boolVariablesinfo: this.boolVariablesinfo,
       };
       this.refreshBlocks();
     }
@@ -378,6 +364,10 @@
         variable: args.variable.toString(),
         bool: String(args.bool),
       };
+      Scratch.vm.runtime.extensionStorage.BV = {
+        boolVariables: this.boolVariables,
+        boolVariablesinfo: this.boolVariablesinfo,
+      };
       if (prevalue != (args.bool === "true")) {
         Scratch.vm.runtime.startHats("BV_ifBool", data);
       }
@@ -407,6 +397,10 @@
       let selectedKey = args.variable;
       delete this.boolVariables[selectedKey];
       delete this.boolVariablesinfo[selectedKey];
+      Scratch.vm.runtime.extensionStorage.BV = {
+        boolVariables: this.boolVariables,
+        boolVariablesinfo: this.boolVariablesinfo,
+      };
       this.refreshBlocks();
       return;
     }
