@@ -18,11 +18,51 @@
   class Boolvariable {
     static customId = "boolvariable";
 
+    /**
+     * @param {any} obj
+     * @param {string} search
+     * @param {string} replaceStr
+     * @returns {any}
+     */
+    replace(obj, search, replaceStr) {
+      if (
+        obj === undefined ||
+        obj === null ||
+        typeof obj === "boolean" ||
+        typeof obj === "number"
+      ) {
+        return obj;
+      }
+      if (typeof obj === "string") {
+        return obj.replaceAll(search, replaceStr);
+      }
+      if (typeof obj === "object") {
+        const jsonStr = JSON.stringify(obj);
+        const replacedJsonStr = jsonStr.replaceAll(search, replaceStr);
+        return JSON.parse(replacedJsonStr);
+      }
+      return obj;
+    }
+
     constructor() {
       /** @type {Record<string, boolean>} */
-      this.boolVariables = {};
+      // @ts-ignore
+      this.boolVariables = this.replace(
+        /** @type {any} */ (Scratch.vm.runtime.extensionStorage).BV?.[
+          "boolVariables"
+        ] ?? {},
+        "XbvX",
+        "_"
+      );
       /** @type {Record<string, {isLocal: boolean, targetId: string, displayName: string}>} */
-      this.boolVariablesinfo = {};
+
+      this.boolVariablesinfo = this.replace(
+        /** @type {any} */ (Scratch.vm.runtime.extensionStorage).BV?.[
+          "boolVariablesinfo"
+        ] ?? {},
+        "XbvX",
+        "_"
+      );
       this.customId = Boolvariable.customId;
       this.type = Boolvariable.customId;
     }
@@ -255,10 +295,12 @@
               targetId: targetId,
               displayName: trimmedName,
             };
-            Scratch.vm.runtime.extensionStorage.BV = {
-              boolVariables: self.boolVariables,
-              boolVariablesinfo: self.boolVariablesinfo,
-            };
+            Scratch.vm.runtime.extensionStorage.BV = JSON.parse(
+              JSON.stringify({
+                boolVariables: self.boolVariables,
+                boolVariablesinfo: self.boolVariablesinfo,
+              })
+            );
             this.refreshBlocks();
             return;
           },
@@ -307,10 +349,12 @@
         targetId: targetId,
         displayName: displayName,
       };
-      Scratch.vm.runtime.extensionStorage.BV = {
-        boolVariables: this.boolVariables,
-        boolVariablesinfo: this.boolVariablesinfo,
-      };
+      Scratch.vm.runtime.extensionStorage.BV = JSON.parse(
+        JSON.stringify({
+          boolVariables: this.boolVariables,
+          boolVariablesinfo: this.boolVariablesinfo,
+        })
+      );
       this.refreshBlocks();
     }
 
@@ -364,10 +408,12 @@
         variable: args.variable.toString(),
         bool: String(args.bool),
       };
-      Scratch.vm.runtime.extensionStorage.BV = {
-        boolVariables: this.boolVariables,
-        boolVariablesinfo: this.boolVariablesinfo,
-      };
+      Scratch.vm.runtime.extensionStorage.BV = JSON.parse(
+        JSON.stringify({
+          boolVariables: this.boolVariables,
+          boolVariablesinfo: this.boolVariablesinfo,
+        })
+      );
       if (prevalue != (args.bool === "true")) {
         Scratch.vm.runtime.startHats("BV_ifBool", data);
       }
@@ -397,10 +443,12 @@
       let selectedKey = args.variable;
       delete this.boolVariables[selectedKey];
       delete this.boolVariablesinfo[selectedKey];
-      Scratch.vm.runtime.extensionStorage.BV = {
-        boolVariables: this.boolVariables,
-        boolVariablesinfo: this.boolVariablesinfo,
-      };
+      Scratch.vm.runtime.extensionStorage.BV = JSON.parse(
+        JSON.stringify({
+          boolVariables: this.boolVariables,
+          boolVariablesinfo: this.boolVariablesinfo,
+        })
+      );
       this.refreshBlocks();
       return;
     }
